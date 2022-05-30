@@ -73,7 +73,7 @@ body {
     background-color: $secondaryColorPaleOrange;
 
     h2 {
-        color: $secondaryColorDarkBrown;
+        margin-bottom: 1.5em;
     }
 }
 
@@ -81,23 +81,91 @@ body {
     $gridGap: 12px;
 
     width: 100%;
+    height: 200px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $secondaryColorCream;
     display: grid;
     column-gap: $gridGap;
     grid-template-columns: repeat(7, calc(100%/7 - #{$gridGap} + #{$gridGap}/7));
 
     .chartbarday {
         text-align: center;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        position: relative;
     }
 
     .bar {
-        height: 70px;
-        border-radius: 8px;
+        width: 100%;
+        height: 70%;
+        border-radius: 6px;
         background-color: $primaryColorSoftRed;
     }
+
+    .bar:hover {
+        filter: brightness(125%);
+    }
+
+    .today-bar {
+        background-color: $primaryColorCyan;
+    }
+
+    .tooltip {
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        font-size: 0.8em;
+        padding: {
+            top: 6px;
+            bottom: 6px;
+        }
+        border-radius: 6px;
+        color: $secondaryColorPaleOrange;
+        background-color: $secondaryColorDarkBrown;
+    }
+
+    .bar:hover ~ .tooltip {
+        visibility: visible;
+    }
+
+    span {
+        @extend .details;
+        @extend .secondary-details;
+        margin-top: 6px;
+    }
+}
+
+.primary-text {
+    color: $secondaryColorDarkBrown;
+    font-weight: bold;
 }
 
 .details {
     font-size: 0.8em;
+}
+
+.secondary-details {
+    color: $secondaryColorMediumBrown;
+}
+
+.total-month-amount-block {
+    margin-top: 20px;
+
+    .numbers-month-amount-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        .month-amount {
+            font: {
+                size: 2.5em;
+            }
+        }
+
+        .percentage-block {
+            text-align: right;
+        }
+    }
 }
 
 .attribution {

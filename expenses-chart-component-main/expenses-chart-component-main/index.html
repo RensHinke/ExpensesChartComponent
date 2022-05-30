@@ -20,7 +20,7 @@
     </div>
 
     <div class="spending-card">
-      <h2>Spending - Last 7 days</h2>
+      <h2 class="primary-text">Spending - Last 7 days</h2>
       <div class="chart">
         <div class="chartbarday">
           <div class="bar"></div>
@@ -51,12 +51,20 @@
           <span>sun</span>
         </div>
       </div>
-      <div class="total-month-amount">
-        Total this month
+      <div class="total-month-amount-block">
+        <div class="details secondary-details">
+          Total this month
+        </div>
         
-        $478.33
-        +2.4%
-        from last month
+        <div class="numbers-month-amount-container">
+          <div class="month-amount primary-text">
+            $478.33
+          </div>
+          <div class="percentage-block">
+            <div class="primary-text">+2.4%</div>
+            <div class=" details secondary-details">from last month</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -66,5 +74,7 @@
     Coded by <a href="#">Your Name Here</a>.
   </div>
   -->
+  <script type="text/javascript" src="data.json"></script>
+  <script type="text/javascript" src="chartmaker.js"></script>
 </body>
 </html>

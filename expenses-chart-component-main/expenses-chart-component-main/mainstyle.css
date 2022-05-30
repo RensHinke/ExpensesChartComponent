@@ -54,11 +54,14 @@ body {
   background-color: hsl(33deg, 100%, 98%);
 }
 .spending-card h2 {
-  color: hsl(25deg, 47%, 15%);
+  margin-bottom: 1.5em;
 }
 
 .chart {
   width: 100%;
+  height: 200px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid hsl(27deg, 66%, 92%);
   display: grid;
   -moz-column-gap: 12px;
        column-gap: 12px;
@@ -66,15 +69,66 @@ body {
 }
 .chart .chartbarday {
   text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  position: relative;
 }
 .chart .bar {
-  height: 70px;
-  border-radius: 8px;
+  width: 100%;
+  height: 70%;
+  border-radius: 6px;
   background-color: hsl(10deg, 79%, 65%);
 }
-
-.details {
+.chart .bar:hover {
+  filter: brightness(125%);
+}
+.chart .today-bar {
+  background-color: hsl(186deg, 34%, 60%);
+}
+.chart .tooltip {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
   font-size: 0.8em;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 6px;
+  color: hsl(33deg, 100%, 98%);
+  background-color: hsl(25deg, 47%, 15%);
+}
+.chart .bar:hover ~ .tooltip {
+  visibility: visible;
+}
+.chart span {
+  margin-top: 6px;
+}
+
+.primary-text {
+  color: hsl(25deg, 47%, 15%);
+  font-weight: bold;
+}
+
+.details, .chart span {
+  font-size: 0.8em;
+}
+
+.secondary-details, .chart span {
+  color: hsl(28deg, 10%, 53%);
+}
+
+.total-month-amount-block {
+  margin-top: 20px;
+}
+.total-month-amount-block .numbers-month-amount-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.total-month-amount-block .numbers-month-amount-container .month-amount {
+  font-size: 2.5em;
+}
+.total-month-amount-block .numbers-month-amount-container .percentage-block {
+  text-align: right;
 }
 
 .attribution {
