@@ -28,20 +28,9 @@ function setDataOnChart(data) {
             if (currentDay == dataDay) {
                 currentBar.classList.add("today-bar");
             }
+
             // Add the tooltip to each bar
-
-            // Compute offset
-            let barTextOffsetInPx = Number(getComputedStyle(chartBars[i].children[1]).height.slice(0, -2));
-            let barTextmarginTop = Number(getComputedStyle(chartBars[i].children[1]).marginTop.slice(0, -2));
-            let barOffsetInPx = Number(getComputedStyle(currentBar).height.slice(0, -2));
-            // Compute total offset and add the offset from the top of the bar at the end
-            let totalOffset = barTextOffsetInPx + barTextmarginTop + barOffsetInPx + 4;
-
-            let tooltip = document.createElement("div");
-            tooltip.classList.add("tooltip");
-            tooltip.style.bottom = "" + totalOffset + "px";
-            tooltip.innerHTML = "$" + data[i].amount;
-            chartBars[i].appendChild(tooltip);
+            createTooltip(chartBars[i], currentBar, chartBars[i].children[1], data[i].amount);
         }
     }
 }
@@ -79,6 +68,21 @@ function getDay() {
         case 6:
             return "sat";
     }
+}
+
+function createTooltip(chartBarDay, bar, day, amount) {
+    // Compute offset
+    let barTextOffsetInPx = Number(getComputedStyle(day).height.slice(0, -2));
+    let barTextmarginTop = Number(getComputedStyle(day).marginTop.slice(0, -2));
+    let barOffsetInPx = Number(getComputedStyle(bar).height.slice(0, -2));
+    // Compute total offset and add the offset from the top of the bar at the end
+    let totalOffset = barTextOffsetInPx + barTextmarginTop + barOffsetInPx + 4;
+
+    let tooltip = document.createElement("div");
+    tooltip.classList.add("tooltip");
+    tooltip.style.bottom = "" + totalOffset + "px";
+    tooltip.innerHTML = "$" + amount;
+    chartBarDay.appendChild(tooltip);
 }
 
 main();

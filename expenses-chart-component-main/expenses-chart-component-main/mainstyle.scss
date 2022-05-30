@@ -114,8 +114,11 @@ body {
     .tooltip {
         visibility: hidden;
         position: absolute;
-        width: 100%;
-        font-size: 0.8em;
+        $width: 125%;
+        width: $width;
+        // exsses width / 2
+        margin-left: calc(-1 * ((#{$width} - 100%) / 2));
+        font-size: 1em;
         padding: {
             top: 6px;
             bottom: 6px;
@@ -158,7 +161,7 @@ body {
 
         .month-amount {
             font: {
-                size: 2.5em;
+                size: min(2.5em, 4vmax);
             }
         }
 
@@ -173,4 +176,10 @@ body {
 }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 650px) {
+    .chart .tooltip {
+        font-size: 2.5vw;
+    }
 }
