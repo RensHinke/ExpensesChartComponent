@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  font-family: "DM Sans", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 18px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(27deg, 66%, 92%);
+}
+
+.master {
+  width: min(80%, 520px);
+}
+
+.balance-card {
+  color: white;
+  margin-bottom: 20px;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: hsl(10deg, 79%, 65%);
+  background-image: url("./images/logo.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 24px);
+}
+.balance-card span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.spending-card {
+  padding-top: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 20px;
+  border-radius: 16px;
+  background-color: hsl(33deg, 100%, 98%);
+}
+.spending-card h2 {
+  color: hsl(25deg, 47%, 15%);
+}
+
+.chart {
+  width: 100%;
+  display: grid;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+  grid-template-columns: repeat(7, calc(100%/7 - 12px + 12px/7));
+}
+.chart .chartbarday {
+  text-align: center;
+}
+.chart .bar {
+  height: 70px;
+  border-radius: 8px;
+  background-color: hsl(10deg, 79%, 65%);
+}
+
+.details {
+  font-size: 0.8em;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228deg, 45%, 44%);
+}/*# sourceMappingURL=mainstyle.css.map */

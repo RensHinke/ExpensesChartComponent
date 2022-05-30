@@ -1,0 +1,108 @@
+// Variable Declarations
+$primaryColorSoftRed: hsl(10, 79%, 65%);
+$primaryColorCyan: hsl(186, 34%, 60%);
+$secondaryColorDarkBrown: hsl(25, 47%, 15%);
+$secondaryColorMediumBrown: hsl(28, 10%, 53%);
+$secondaryColorCream: hsl(27, 66%, 92%);
+$secondaryColorPaleOrange: hsl(33, 100%, 98%);
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body,
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 18px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondaryColorCream;
+}
+
+.master {
+    width: min(80%, 520px);
+}
+
+.balance-card {
+    $paddingWidth: 24px;
+
+    color: white;
+    margin-bottom: 20px;
+    padding: $paddingWidth;
+    border-radius: 16px;
+    background: {
+        color: $primaryColorSoftRed;
+        image: url("./images/logo.svg");
+        repeat: no-repeat;
+        
+        position: calc(100% - #{$paddingWidth});
+    }
+
+    span {
+        font: {
+            size: 1.2em;
+            weight: bold;
+        }
+    }
+}
+
+.spending-card {
+    padding: {
+        top: 20px;
+        left: 24px;
+        right: 24px;
+        bottom: 20px;
+    }
+    border-radius: 16px;
+    background-color: $secondaryColorPaleOrange;
+
+    h2 {
+        color: $secondaryColorDarkBrown;
+    }
+}
+
+.chart {
+    $gridGap: 12px;
+
+    width: 100%;
+    display: grid;
+    column-gap: $gridGap;
+    grid-template-columns: repeat(7, calc(100%/7 - #{$gridGap} + #{$gridGap}/7));
+
+    .chartbarday {
+        text-align: center;
+    }
+
+    .bar {
+        height: 70px;
+        border-radius: 8px;
+        background-color: $primaryColorSoftRed;
+    }
+}
+
+.details {
+    font-size: 0.8em;
+}
+
+.attribution {
+    font-size: 11px; text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
